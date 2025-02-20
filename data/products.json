@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "هاتف ذكي",
+        "price": "1200 درهم",
+        "image": "images/product1.jpg"
+    },
+    {
+        "id": 2,
+        "name": "حاسوب محمول",
+        "price": "3500 درهم",
+        "image": "images/product2.jpg"
+    },
+    {
+        "id": 3,
+        "name": "سماعات لاسلكية",
+        "price": "250 درهم",
+        "image": "images/product3.jpg"
+    }
+]
