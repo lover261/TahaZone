@@ -4,181 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TahaZon - متجر متكامل</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
-        nav {
-            text-align: center;
-            background-color: #333;
-        }
-        nav a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-        section {
-            padding: 20px;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: white;
-        }
-        .container {
-            display: flex;
-            justify-content: space-between;
-        }
-        .card {
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            margin: 10px;
-            width: 30%;
-            text-align: center;
-        }
-        .card img {
-            width: 100%;
-            height: auto;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group input, .form-group button {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-        }
-        .form-group button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .form-group button:hover {
-            background-color: #45a049;
-        }
-        .user-info {
-            margin: 20px 0;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header>
     <h1>مرحباً بك في TahaZon</h1>
-    <p>أهلاً بك في أكبر متجر إلكتروني لبيع جميع المنتجات القانونية.</p>
+    <p>أكبر متجر إلكتروني لبيع جميع المنتجات القانونية.</p>
 </header>
 
 <nav>
-    <a href="#home">الرئيسية</a>
-    <a href="#login">تسجيل الدخول</a>
-    <a href="#signup">التسجيل</a>
-    <a href="#products">المنتجات</a>
-    <a href="#contact">التواصل</a>
-    <a href="#cart">سلة التسوق</a>
+    <a href="index.html">الرئيسية</a>
+    <a href="pages/login.html">تسجيل الدخول</a>
+    <a href="pages/register.html">التسجيل</a>
+    <a href="pages/products.html">المنتجات</a>
+    <a href="pages/contact.html">التواصل</a>
+    <a href="pages/cart.html">سلة التسوق</a>
 </nav>
 
 <section id="home">
     <h2>الصفحة الرئيسية</h2>
-    <p>مرحبًا بكم في TahaZon، حيث تجد كل ما تحتاجه.</p>
-</section>
-
-<section id="login">
-    <h2>تسجيل الدخول</h2>
-    <form action="#">
-        <div class="form-group">
-            <label for="email">البريد الإلكتروني:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="password">كلمة السر:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <div class="form-group">
-            <button type="submit">دخول</button>
-        </div>
-    </form>
-</section>
-
-<section id="signup">
-    <h2>التسجيل</h2>
-    <form action="#">
-        <div class="form-group">
-            <label for="new-email">البريد الإلكتروني:</label>
-            <input type="email" id="new-email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="new-password">كلمة السر:</label>
-            <input type="password" id="new-password" name="password" required>
-        </div>
-        <div class="form-group">
-            <button type="submit">تسجيل</button>
-        </div>
-    </form>
+    <p>مرحبًا بكم في TahaZon، حيث تجد كل ما تحتاجه بسهولة وأمان.</p>
 </section>
 
 <section id="products">
     <h2>المنتجات</h2>
     <div class="container">
         <div class="card">
-            <img src="product1.jpg" alt="منتج 1">
+            <img src="images/product1.jpg" alt="منتج 1">
             <h3>منتج 1</h3>
             <p>وصف المنتج.</p>
-            <button>أضف إلى السلة</button>
+            <button onclick="addToCart(1)">أضف إلى السلة</button>
         </div>
         <div class="card">
-            <img src="product2.jpg" alt="منتج 2">
+            <img src="images/product2.jpg" alt="منتج 2">
             <h3>منتج 2</h3>
             <p>وصف المنتج.</p>
-            <button>أضف إلى السلة</button>
+            <button onclick="addToCart(2)">أضف إلى السلة</button>
         </div>
         <div class="card">
-            <img src="product3.jpg" alt="منتج 3">
+            <img src="images/product3.jpg" alt="منتج 3">
             <h3>منتج 3</h3>
             <p>وصف المنتج.</p>
-            <button>أضف إلى السلة</button>
+            <button onclick="addToCart(3)">أضف إلى السلة</button>
         </div>
     </div>
 </section>
 
-<section id="contact">
-    <h2>التواصل</h2>
-    <form action="#">
-        <div class="form-group">
-            <label for="message">استفسار:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-        </div>
-        <div class="form-group">
-            <button type="submit">إرسال</button>
-        </div>
-    </form>
-</section>
-
-<section id="cart">
-    <h2>سلة التسوق</h2>
-    <p>هنا تظهر المنتجات التي أضفتها إلى سلة التسوق.</p>
-</section>
-
 <footer>
-    <p>جميع الحقوق محفوظة لـ TahaZon</p>
+    <p>جميع الحقوق محفوظة &copy; 2025 - TahaZon</p>
 </footer>
 
+<script src="js/script.js"></script>
 </body>
 </html>
