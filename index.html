@@ -62,7 +62,7 @@
         .form-group {
             margin-bottom: 15px;
         }
-        .form-group input, .form-group button {
+        .form-group input, .form-group select, .form-group button {
             width: 90%;
             padding: 12px;
             margin: 5px 0;
@@ -80,9 +80,17 @@
         }
     </style>
     <script>
-        function redirectToProfile() {
-            alert("تم التسجيل بنجاح! سيتم توجيهك إلى حسابك.");
-            window.location.href = "user_profile.html";
+        function redirectToDashboard() {
+            let role = document.getElementById("user-role").value;
+            if (role === "buyer") {
+                window.location.href = "buyer_dashboard.html";
+            } else {
+                window.location.href = "seller_dashboard.html";
+            }
+        }
+        function changeLanguage(lang) {
+            alert("تم تغيير اللغة إلى: " + lang);
+            // يمكنك هنا تحميل المحتوى بلغات مختلفة بناءً على الاختيار
         }
     </script>
 </head>
@@ -90,12 +98,16 @@
 
 <header>
     <h1>مرحباً بك في TahaZon</h1>
+    <select onchange="changeLanguage(this.value)">
+        <option value="ar">العربية</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+    </select>
 </header>
 
 <nav>
     <a href="#home">الرئيسية</a>
-    <a href="#login">تسجيل الدخول</a>
-    <a href="#signup">التسجيل</a>
+    <a href="#signup">تسجيل الدخول / التسجيل</a>
     <a href="#products">المنتجات</a>
     <a href="#contact">التواصل</a>
     <a href="#cart">سلة التسوق</a>
@@ -103,7 +115,7 @@
 
 <section id="signup">
     <h2>التسجيل</h2>
-    <form onsubmit="redirectToProfile(); return false;">
+    <form onsubmit="redirectToDashboard(); return false;">
         <div class="form-group">
             <label for="new-email">البريد الإلكتروني:</label>
             <input type="email" id="new-email" name="email" required>
@@ -111,6 +123,13 @@
         <div class="form-group">
             <label for="new-password">كلمة السر:</label>
             <input type="password" id="new-password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="user-role">اختر نوع الحساب:</label>
+            <select id="user-role">
+                <option value="buyer">متسوق</option>
+                <option value="seller">بائع</option>
+            </select>
         </div>
         <div class="form-group">
             <button type="submit">تسجيل</button>
