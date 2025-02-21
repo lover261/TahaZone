@@ -4,51 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TahaZon - متجر متكامل</title>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background: linear-gradient(to right, #ff8c00, #ff5733, #ff3333);
             color: #333;
         }
         header {
-            background-color: #4CAF50;
+            background-color: #ff8c00;
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 20px;
+            font-size: 24px;
         }
         nav {
             text-align: center;
             background-color: #333;
+            padding: 10px 0;
         }
         nav a {
             color: white;
             padding: 14px 20px;
             text-decoration: none;
             display: inline-block;
+            font-size: 18px;
         }
         nav a:hover {
-            background-color: #ddd;
-            color: black;
+            background-color: #ff5733;
+            color: white;
+            border-radius: 8px;
         }
         section {
             padding: 20px;
-        }
-        footer {
             text-align: center;
-            padding: 10px;
-            background-color: #333;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .card {
+            background-color: white;
+            padding: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            width: 250px;
+            text-align: center;
+            border-radius: 12px;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group input, .form-group button {
+            width: 90%;
+            padding: 12px;
+            margin: 5px 0;
+            border-radius: 8px;
+            border: 1px solid #ff5733;
+        }
+        .form-group button {
+            background-color: #ff5733;
             color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #ff3333;
         }
     </style>
+    <script>
+        function redirectToProfile() {
+            alert("تم التسجيل بنجاح! سيتم توجيهك إلى حسابك.");
+            window.location.href = "user_profile.html";
+        }
+    </script>
 </head>
 <body>
 
 <header>
     <h1>مرحباً بك في TahaZon</h1>
-    <p>أهلاً بك في أكبر متجر إلكتروني لبيع جميع المنتجات القانونية.</p>
 </header>
 
 <nav>
@@ -60,26 +101,9 @@
     <a href="#cart">سلة التسوق</a>
 </nav>
 
-<section id="login">
-    <h2>تسجيل الدخول</h2>
-    <form action="#" id="loginForm">
-        <div class="form-group">
-            <label for="email">البريد الإلكتروني:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="password">كلمة السر:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <div class="form-group">
-            <button type="submit">دخول</button>
-        </div>
-    </form>
-</section>
-
 <section id="signup">
     <h2>التسجيل</h2>
-    <form action="#" id="signupForm">
+    <form onsubmit="redirectToProfile(); return false;">
         <div class="form-group">
             <label for="new-email">البريد الإلكتروني:</label>
             <input type="email" id="new-email" name="email" required>
@@ -93,33 +117,6 @@
         </div>
     </form>
 </section>
-
-<footer>
-    <p>جميع الحقوق محفوظة لـ TahaZon</p>
-</footer>
-
-<script>
-    document.getElementById('signupForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        var email = document.getElementById('new-email').value;
-        var password = document.getElementById('new-password').value;
-        
-        if (password.length < 8) {
-            alert('كلمة المرور يجب أن تكون 8 أحرف على الأقل!');
-            return;
-        }
-        
-        Email.send({
-            SecureToken: "your-secure-token",
-            To: email,
-            From: "your-email@example.com",
-            Subject: "تأكيد التسجيل في TahaZon",
-            Body: "شكرًا لتسجيلك في موقعنا، يرجى تأكيد حسابك عبر الرابط التالي."
-        }).then(
-            message => alert("تم إرسال بريد التأكيد")
-        );
-    });
-</script>
 
 </body>
 </html>
