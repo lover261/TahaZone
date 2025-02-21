@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التسجيل - TahaZon</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/scripts.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>إنشاء حساب جديد</h1>
+        <div class="language-switcher">
+            <button onclick="changeLanguage('ar')">العربية</button>
+            <button onclick="changeLanguage('fr')">Français</button>
+            <button onclick="changeLanguage('en')">English</button>
+        </div>
+    </header>
+    <section class="form-container">
+        <form id="signup-form">
+            <div class="form-group">
+                <label for="email">البريد الإلكتروني:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">كلمة المرور:</label>
+                <input type="password" id="password" required>
+                <small>يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل، ورقم وحرف كبير.</small>
+            </div>
+            <div class="form-group">
+                <label for="user-type">نوع الحساب:</label>
+                <select id="user-type" required>
+                    <option value="buyer">متسوق</option>
+                    <option value="seller">بائع</option>
+                </select>
+            </div>
+            <button type="submit">تسجيل</button>
+        </form>
+    </section>
+</body>
+</html>
 
