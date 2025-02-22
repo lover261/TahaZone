@@ -54,12 +54,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ✅ إرسال رسالة تأكيد إلى البريد الإلكتروني
     function sendVerificationEmail(email) {
+        const verificationLink = `https://yourwebsite.com/verify?email=${encodeURIComponent(email)}`;
         Email.send({
             SecureToken: "your-smtp-token", // 🔹 استخدم خدمة SMTP مجانية مثل smtpjs.com
             To: email,
-            From: "your-email@example.com",
+            From: "mohammed.taha.25102000@gmail.com", // بريدك الإلكتروني
             Subject: "تأكيد حسابك في TahaZon",
-            Body: `مرحبًا بك في TahaZon! يرجى تأكيد حسابك عبر هذا الرابط: <a href='#'>اضغط هنا</a>.`
+            Body: `مرحبًا بك في TahaZon! يرجى تأكيد حسابك عبر هذا الرابط: <a href='${verificationLink}'>اضغط هنا</a>.`
         }).then(message => alert("تم إرسال رسالة التحقق إلى بريدك الإلكتروني."));
     }
 });
