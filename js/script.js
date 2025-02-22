@@ -7,6 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
         return password.length >= 8 && /[A-Z]/.test(password) && /[0-9]/.test(password);
     }
 
+    // ✅ التحقق من صحة البريد الإلكتروني
+    function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+
     // ✅ التسجيل
     if (signupForm) {
         signupForm.addEventListener("submit", function (e) {
@@ -14,6 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const email = document.querySelector("#new-email").value;
             const password = document.querySelector("#new-password").value;
+
+            // 🔴 التحقق من صحة البريد الإلكتروني
+            if (!isValidEmail(email)) {
+                alert("يرجى إدخال بريد إلكتروني صالح.");
+                return;
+            }
 
             // 🔴 منع كلمة المرور الضعيفة
             if (!isPasswordStrong(password)) {
@@ -32,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 localStorage.setItem("users", JSON.stringify(users));
                 alert("تم التسجيل بنجاح! تحقق من بريدك الإلكتروني.");
                 sendVerificationEmail(email);
+                window.location.href = "login.html"; // توجيه المستخدم إلى صفحة تسجيل الدخول
             }
         });
     }
@@ -49,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (user) {
                 alert("تم تسجيل الدخول بنجاح!");
-                window.location.href = "dashboard.html"; // 🔹 توجيه المستخدم إلى صفحة حسابه
+                window.location.href = "dashboard.html"; // توجيه المستخدم إلى صفحة حسابه
             } else {
                 alert("البريد الإلكتروني أو كلمة السر غير صحيحة.");
             }
@@ -60,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function sendVerificationEmail(email) {
         const verificationLink = `https://yourwebsite.com/verify?email=${encodeURIComponent(email)}`;
         Email.send({
-            SecureToken: "your-smtp-token", // 🔹 استخدم خدمة SMTP مجانية مثل smtpjs.com
+            SecureToken: "your-smtp-token", // استخدم خدمة SMTP مجانية مثل smtpjs.com
             To: email,
             From: "mohammed.taha.25102000@gmail.com", // بريدك الإلكتروني
             Subject: "تأكيد حسابك في TahaZon",
